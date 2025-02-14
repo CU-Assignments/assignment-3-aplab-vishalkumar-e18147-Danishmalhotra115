@@ -1,0 +1,18 @@
+# Symmetric Tree
+
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+       return isSame(root->left,root->right);
+    }
+    bool isSame(TreeNode*l,TreeNode*r)
+    {
+        if(l==nullptr && r==nullptr)
+        return true;
+        if(l==nullptr || r==nullptr)
+        return false;
+        if(l->val != r->val)
+        return false;
+        return isSame(l->left,r->right) && isSame(l->right,r->left);
+    }
+};
